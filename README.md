@@ -1,29 +1,19 @@
-# README #
+# Create-School-Management-System-with-PHP-MySQL
 
-This README would normally document whatever steps are necessary to get your application up and running.
+[School Management System (SMS)](https://getprojects.org/create-school-management-system-with-php-mysql/) is a web application commonly used in schools to manage teachers, students, classes, subjects, sections, student attendance, etc.
 
-### What is this repository for? ###
+So if you are a PHP developer and want to develop School Management System with PHP, you are here at the right place. This tutorial will teach how to develop a School Management System with PHP and MySQL.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+We will cover this tutorial in easy steps, from developing a live demo of the school management system to covering major functionalities like managing teachers, students, classes, subjects, sections, student attendance, etc. This is a straightforward school management system for learning purposes and can be enhanced according to the requirement to develop a perfect advanced level system. The download link is at the end of the tutorial to download the complete project with database tables.
 
-### How do I get set up? ###
+## About School Management System
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+School Management Systems manage all the information of the students and/or faculty in a particular school.
 
-### Contribution guidelines ###
+In our project, we will only use it to manage some basic personal information of the students of a school.
 
-* Writing tests
-* Code review
-* Other guidelines
+So let us start implementing School Management System with PHP and MySQL.
 
-### Who do I talk to? ###
+## Other Related Information
 
-* Repo owner or admin
-* Other community or team contact
+For Demo, Demo login and other details. Follow our website
