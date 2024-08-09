@@ -46,7 +46,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `index_number`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `reg_date`) VALUES
-(1, 100, 'Get Projects', 'Get Projects', 'Male', 'Chandigarh INDIA', '111-111-1114', 'admin@getprojects.org', 'uploads/20220414010104.png', '2018-01-10');
+(1, 100, 'RHS Services', 'RHS Services', 'Male', 'Chandigarh INDIA', '111-111-1114', 'admin@getprojects.org', 'uploads/20220414010104.png', '2018-01-10');
 
 -- --------------------------------------------------------
 

@@ -2,7 +2,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 1.0.2
         </div>
-        <strong>Copyright &copy; 2022 | Created by <a href="https://getprojects.org/">Get Projects</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2024 | Created by <a href="#">RHS Services</a>.</strong> All rights reserved.
      </footer>
       
   </body>
