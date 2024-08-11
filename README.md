@@ -1,6 +1,6 @@
 # Create-School-Management-System-with-PHP-MySQL
 
-[School Management System (SMS)](https://getprojects.org/create-school-management-system-with-php-mysql/) is a web application commonly used in schools to manage teachers, students, classes, subjects, sections, student attendance, etc.
+[School Management System (SMS)] is a web application commonly used in schools to manage teachers, students, classes, subjects, sections, student attendance, etc.
 
 So if you are a PHP developer and want to develop School Management System with PHP, you are here at the right place. This tutorial will teach how to develop a School Management System with PHP and MySQL.
 
