@@ -54,7 +54,8 @@ margin:0;
 .tHead{
 	
 	height:40px;
-	background-color:#e62d11;
+	/* background-color:e62d11; */
+	background-color:#048ed9;
 	color:#FFF;
 	text-align:center;
 	border:1px solid #FFF;
@@ -69,7 +70,8 @@ margin:0;
 .td_no_number{
 	border:1px solid white;
 	width:70px;
-	background-color:#a3d5ee;
+	/* background-color:#a3d5ee; */
+	background-color:#edf8fc;
 	padding:0;
 }
 
@@ -85,7 +87,8 @@ margin:0;
 .cal-number-td{
 	border:1px solid white;
 	width:70px;
-	background-color:#4c9db1;
+	/* background-color:#4c9db1; */
+	background-color:#8ecaed;
 	color:white;
 	
 		
@@ -95,7 +98,8 @@ margin:0;
 .h5{
 	color:#FFF;
 	display: inline-block;
-	background:#636;
+	/* background:#636; */
+	background:#000000;
 	width:20px;
 	height:20px;	
 	font-size:14px;
