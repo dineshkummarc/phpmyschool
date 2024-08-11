@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 14, 2022 at 01:08 AM
--- Server version: 5.7.23-23
--- PHP Version: 7.3.32
+-- Host: 127.0.0.1
+-- Generation Time: Aug 11, 2024 at 06:14 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `DemoSMS`
+-- Database: `phpmyschool`
 --
 
 -- --------------------------------------------------------
@@ -46,7 +45,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `index_number`, `full_name`, `i_name`, `gender`, `address`, `phone`, `email`, `image_name`, `reg_date`) VALUES
-(1, 100, 'RHS Services', 'RHS Services', 'Male', 'Chandigarh INDIA', '111-111-1114', 'admin@getprojects.org', 'uploads/20220414010104.png', '2018-01-10');
+(1, 100, 'RHS Services', 'RHS Services', 'Male', 'New Delhi INDIA', '111-111-1114', 'admin@rhsservices.org', 'uploads/20220414010104.png', '2018-01-10');
 
 -- --------------------------------------------------------
 
@@ -111,6 +110,13 @@ CREATE TABLE `events` (
   `year` int(11) NOT NULL,
   `month` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `note`, `color`, `category_id`, `grade_id`, `create_by`, `creator_type`, `start_date_time`, `end_date_time`, `year`, `month`) VALUES
+(1, 'Admin check', 'PTM will be held on 12 August 2024', '#ffffff', 2, '', 100, 'Admin', '2024-08-12 00:00:00', '2024-08-12 23:59:00', 2024, 7);
 
 -- --------------------------------------------------------
 
@@ -192,7 +198,8 @@ INSERT INTO `exam_range_grade` (`id`, `grade_id`, `mark_range`, `_from`, `_to`, 
 (65, 13, '45-55', 45, 55, 'C'),
 (66, 13, '55-75', 55, 75, 'B'),
 (67, 13, '75-85', 75, 85, 'A'),
-(68, 13, '85-100', 85, 100, 'A+');
+(68, 13, '85-100', 85, 100, 'A+'),
+(69, 14, '0-33', 0, 33, 'F');
 
 -- --------------------------------------------------------
 
@@ -231,7 +238,8 @@ CREATE TABLE `grade` (
 INSERT INTO `grade` (`id`, `name`, `admission_fee`, `hall_charge`) VALUES
 (11, 'Grade 1', 1000.00, 25),
 (12, 'Grade 2', 1000.00, 25),
-(13, 'Grade 3', 1000.00, 25);
+(13, 'Grade 3', 1000.00, 25),
+(14, 'Grade4', 0.00, 0);
 
 -- --------------------------------------------------------
 
@@ -272,7 +280,9 @@ CREATE TABLE `main_notifications` (
 --
 
 INSERT INTO `main_notifications` (`id`, `notification_id`, `_status`, `year`, `month`, `date`, `_isread`) VALUES
-(1, 1, 'Payments', 2017, 'November', '2017-11-25', 1);
+(1, 1, 'Payments', 2017, 'November', '2017-11-25', 1),
+(2, 1, 'Events', 2024, 'August', '2024-08-11', 1),
+(3, 2, 'Payments', 2024, 'August', '2024-08-11', 0);
 
 -- --------------------------------------------------------
 
@@ -291,6 +301,16 @@ CREATE TABLE `my_friends` (
   `_isread` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `my_friends`
+--
+
+INSERT INTO `my_friends` (`id`, `my_index`, `friend_index`, `_status`, `conversation_id`, `my_type`, `friend_type`, `_isread`) VALUES
+(1, 100, 1, 'Friend_Request_Sent', 1, 'Admin', 'Teacher', 0),
+(2, 1, 100, 'Pending', 1, 'Teacher', 'Admin', 0),
+(3, 100, 3, 'Friend_Request_Sent', 3, 'Admin', 'Teacher', 0),
+(4, 3, 100, 'Pending', 3, 'Teacher', 'Admin', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -304,6 +324,23 @@ CREATE TABLE `notification_history` (
   `user_type` varchar(255) NOT NULL,
   `_isread` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notification_history`
+--
+
+INSERT INTO `notification_history` (`id`, `notification_id`, `index_number`, `user_type`, `_isread`) VALUES
+(1, 1, 11, 'Student', 0),
+(2, 1, 12, 'Student', 0),
+(3, 1, 13, 'Student', 0),
+(4, 1, 14, 'Student', 0),
+(5, 1, 25252525, 'Student', 0),
+(6, 1, 1, 'Teacher', 0),
+(7, 1, 2, 'Teacher', 0),
+(8, 1, 3, 'Teacher', 0),
+(9, 1, 4, 'Teacher', 0),
+(10, 1, 5, 'Teacher', 0),
+(11, 1, 6, 'Teacher', 0);
 
 -- --------------------------------------------------------
 
@@ -377,7 +414,8 @@ CREATE TABLE `payment_notifications` (
 --
 
 INSERT INTO `payment_notifications` (`id`, `index_number`, `year`, `month`, `date`, `_status`) VALUES
-(1, 11, 2017, 'November', '2017-11-25', 1);
+(1, 11, 2017, 'November', '2017-11-25', 1),
+(2, 11, 2024, 'August', '2024-08-11', 1);
 
 -- --------------------------------------------------------
 
@@ -476,7 +514,8 @@ CREATE TABLE `student_attendance` (
 --
 
 INSERT INTO `student_attendance` (`id`, `index_number`, `date`, `month`, `year`, `time`, `_status1`, `_status2`) VALUES
-(1, 11, '2017-11-25', 'November', 2017, '11:30:59', 'intime', 'Present');
+(1, 11, '2017-11-25', 'November', 2017, '11:30:59', 'intime', 'Present'),
+(2, 11, '2024-08-11', 'August', 2024, '04:30:27', 'intime', 'Present');
 
 -- --------------------------------------------------------
 
@@ -517,7 +556,9 @@ INSERT INTO `student_exam` (`id`, `index_number`, `grade_id`, `exam_id`, `subjec
 (51, 11, 11, 6, 17, '70', 2017, '2017-11-26'),
 (52, 11, 11, 6, 18, '97', 2017, '2017-11-26'),
 (53, 11, 11, 6, 19, '82', 2017, '2017-11-26'),
-(54, 11, 11, 6, 20, '97', 2017, '2017-11-26');
+(54, 11, 11, 6, 20, '97', 2017, '2017-11-26'),
+(55, 11, 11, 4, 15, '50', 2024, '2024-08-11'),
+(56, 11, 11, 5, 15, '80', 2024, '2024-08-11');
 
 -- --------------------------------------------------------
 
@@ -537,11 +578,11 @@ CREATE TABLE `student_grade` (
 --
 
 INSERT INTO `student_grade` (`id`, `index_number`, `grade_id`, `year`) VALUES
-(81, 11, 11, 2017),
 (82, 12, 11, 2017),
 (83, 13, 11, 2017),
 (86, 14, 11, 2017),
-(87, 25252525, 11, 2018);
+(87, 25252525, 11, 2018),
+(90, 11, 11, 2024);
 
 -- --------------------------------------------------------
 
@@ -573,7 +614,11 @@ INSERT INTO `student_payment` (`id`, `index_number`, `year`, `month`, `date`, `p
 (230, 13, 2017, 'November', '2017-11-24', 1500.00, 'Monthly Fee1', ''),
 (234, 14, 2017, 'November', '2017-11-24', 1500.00, 'Monthly Fee1', ''),
 (235, 25252525, 2018, 'February', '2018-02-04', 1000.00, 'Admission Fee', ''),
-(236, 25252525, 2018, 'February', '2018-02-04', 1500.00, 'Monthly Fee1', '');
+(236, 25252525, 2018, 'February', '2018-02-04', 1500.00, 'Monthly Fee1', ''),
+(237, 11, 2024, 'August', '2024-08-11', 1000.00, 'Admission Fee', ''),
+(238, 11, 2024, 'August', '2024-08-11', 250.00, 'Monthly Fee1', ''),
+(239, 11, 2024, 'August', '2024-08-11', 1000.00, 'Admission Fee', ''),
+(240, 11, 2024, 'August', '2024-08-11', 350.00, 'Monthly Fee1', '');
 
 -- --------------------------------------------------------
 
@@ -630,7 +675,9 @@ INSERT INTO `student_payment_history` (`id`, `index_number`, `grade_id`, `subjec
 (620, 25252525, 11, 17, 12, 250.00, 250.00, 'Monthly Fee', 'February', 2018, '2018-02-04', 235),
 (621, 25252525, 11, 18, 13, 250.00, 250.00, 'Monthly Fee', 'February', 2018, '2018-02-04', 235),
 (622, 25252525, 11, 19, 14, 250.00, 250.00, 'Monthly Fee', 'February', 2018, '2018-02-04', 235),
-(623, 25252525, 11, 20, 15, 250.00, 250.00, 'Monthly Fee', 'February', 2018, '2018-02-04', 235);
+(623, 25252525, 11, 20, 15, 250.00, 250.00, 'Monthly Fee', 'February', 2018, '2018-02-04', 235),
+(624, 11, 11, 15, 10, 250.00, 250.00, 'Monthly Fee', 'August', 2024, '2024-08-11', 237),
+(625, 11, 12, 15, 10, 350.00, 350.00, 'Monthly Fee', 'August', 2024, '2024-08-11', 239);
 
 -- --------------------------------------------------------
 
@@ -652,12 +699,6 @@ CREATE TABLE `student_subject` (
 --
 
 INSERT INTO `student_subject` (`id`, `index_number`, `_status`, `sr_id`, `year`, `reg_month`) VALUES
-(201, 11, '', 17, 2017, ''),
-(202, 11, '', 18, 2017, ''),
-(203, 11, '', 19, 2017, ''),
-(204, 11, '', 20, 2017, ''),
-(205, 11, '', 21, 2017, ''),
-(206, 11, '', 22, 2017, ''),
 (207, 12, '', 17, 2017, ''),
 (208, 12, '', 18, 2017, ''),
 (209, 12, '', 19, 2017, ''),
@@ -681,7 +722,8 @@ INSERT INTO `student_subject` (`id`, `index_number`, `_status`, `sr_id`, `year`,
 (239, 25252525, '', 19, 2018, ''),
 (240, 25252525, '', 20, 2018, ''),
 (241, 25252525, '', 21, 2018, ''),
-(242, 25252525, '', 22, 2018, '');
+(242, 25252525, '', 22, 2018, ''),
+(245, 11, '', 17, 2024, '');
 
 -- --------------------------------------------------------
 
@@ -808,6 +850,13 @@ CREATE TABLE `teacher_salary` (
   `_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `teacher_salary`
+--
+
+INSERT INTO `teacher_salary` (`id`, `index_number`, `month`, `year`, `date`, `paid`, `_status`) VALUES
+(1, 1, 'August', 2024, '2024-08-11', 468.75, 'Advance');
+
 -- --------------------------------------------------------
 
 --
@@ -830,6 +879,15 @@ CREATE TABLE `teacher_salary_history` (
   `date` date NOT NULL,
   `invoice_number` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teacher_salary_history`
+--
+
+INSERT INTO `teacher_salary_history` (`id`, `index_number`, `grade_id`, `subject_id`, `subject_fee`, `student_count`, `hall_charge`, `subtotal`, `paid`, `_status`, `month`, `year`, `date`, `invoice_number`) VALUES
+(1, 1, 11, 15, 250.00, 0, 25, 0.00, 468.75, 'Advance', 'August', 2024, '2024-08-11', 1),
+(2, 1, 12, 15, 350.00, 0, 25, 0.00, 468.75, 'Advance', 'August', 2024, '2024-08-11', 1),
+(3, 1, 13, 15, 400.00, 0, 25, 0.00, 468.75, 'Advance', 'August', 2024, '2024-08-11', 1);
 
 -- --------------------------------------------------------
 
@@ -908,7 +966,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `type`) VALUES
-(29, 'admin@getprojects.org', '12345', 'Admin'),
+(29, 'admin@rhsservices.org', '12345', 'Admin'),
 (47, 't1@gmail.com', '12345', 'Teacher'),
 (48, 't2@gmail.com', '12345', 'Teacher'),
 (49, 't3@gmail.com', '12345', 'Teacher'),
@@ -922,13 +980,7 @@ INSERT INTO `user` (`id`, `email`, `password`, `type`) VALUES
 (57, 'std3@gmail.com', '12345', 'Student'),
 (58, 'dad3@gmail.com', '12345', 'Parents'),
 (59, 'std4@gmail.com', '12345', 'Student'),
-(61, 'std4@gmail.com', '12345', 'Student'),
-(63, 'std4@gmail.com', '12345', 'Student'),
-(64, 'std4@gmail.com', '12345', 'Student'),
-(66, 'std4@gmail.com', '12345', 'Student'),
-(67, 'dad4@gmail.com', '12345', 'Parents'),
-(69, 'dad123@gmail.com', '12345', 'Parents'),
-(70, 'lkforex2015111@gmail.com', '12345', 'Student');
+(67, 'dad4@gmail.com', '12345', 'Parents');
 
 --
 -- Indexes for dumped tables
@@ -1164,7 +1216,7 @@ ALTER TABLE `class_room`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `event_category`
@@ -1188,7 +1240,7 @@ ALTER TABLE `exam`
 -- AUTO_INCREMENT for table `exam_range_grade`
 --
 ALTER TABLE `exam_range_grade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `exam_timetable`
@@ -1200,7 +1252,7 @@ ALTER TABLE `exam_timetable`
 -- AUTO_INCREMENT for table `grade`
 --
 ALTER TABLE `grade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `group_message`
@@ -1212,19 +1264,19 @@ ALTER TABLE `group_message`
 -- AUTO_INCREMENT for table `main_notifications`
 --
 ALTER TABLE `main_notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `my_friends`
 --
 ALTER TABLE `my_friends`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `notification_history`
 --
 ALTER TABLE `notification_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `online_chat`
@@ -1242,7 +1294,7 @@ ALTER TABLE `parents`
 -- AUTO_INCREMENT for table `payment_notifications`
 --
 ALTER TABLE `payment_notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `petty_cash`
@@ -1266,37 +1318,37 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `student_attendance`
 --
 ALTER TABLE `student_attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_exam`
 --
 ALTER TABLE `student_exam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `student_grade`
 --
 ALTER TABLE `student_grade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `student_payment`
 --
 ALTER TABLE `student_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
 
 --
 -- AUTO_INCREMENT for table `student_payment_history`
 --
 ALTER TABLE `student_payment_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=624;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=626;
 
 --
 -- AUTO_INCREMENT for table `student_subject`
 --
 ALTER TABLE `student_subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
 
 --
 -- AUTO_INCREMENT for table `subject`
@@ -1326,13 +1378,13 @@ ALTER TABLE `teacher_attendance`
 -- AUTO_INCREMENT for table `teacher_salary`
 --
 ALTER TABLE `teacher_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `teacher_salary_history`
 --
 ALTER TABLE `teacher_salary_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `timetable`
