@@ -12,9 +12,7 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 <style>
 
 .form-control-feedback {
-  
    pointer-events: auto;
-  
 }
 
 .set-width-tooltip + .tooltip > .tooltip-inner { 
@@ -26,14 +24,12 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 	width:100%;
 	padding:0;
 	margin:0;	
-
 }
 
 #calendar_dates{
 	padding:10px;
 	margin-left:10px;
-	width:95%;	
-	
+	width:95%;
 }
 
 .tHead{
@@ -58,17 +54,12 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 	padding:0;
 }
 
-
-
 .cal-number-td{
 	border:1px solid white;
 	width:70px;
 	background-color:#677be2;
 	color:white;
-	
-		
 }
-
 
 .h5{
 	color:#FFF;
@@ -103,10 +94,6 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 	margin-left:5px;
 	padding:0;
 }
-
-
-
-
 
 .present{
 	background-color:#00FF66;
@@ -399,13 +386,15 @@ if(mysqli_num_rows($result) > 0) {
                             </div>
 <?php  }echo '<script>','show_calendar()','</script>'; ?>                            
                     	</div>
-                	</div><!-- /.box-body -->           
+                	</div><!-- /.box-body -->        
             	</div><!-- /.box-->
         	</div> 
+			</div> 
 		</div>
-	</section>   
+		
+	</section>
      
-</div><!-- /.content-wrapper -->  
+</div><!-- /.content-wrapper -->
 
 <!--redirect your own url when clicking browser back button -->
 <script>
@@ -423,5 +412,4 @@ window.addEventListener("popstate", function() {
 }, false);
 }(window, location));
 </script>
-              
 <?php include_once('footer.php');?>
