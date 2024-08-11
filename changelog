@@ -1,4 +1,8 @@
 CHANGE LOG:
+
+v2.3.0.1:
+- Modified Calender color combinations for event page
+
 v2.3.0:
 - Added social widgets (found in the widgets page)
 - Added profile page
@@ -16,7 +20,7 @@ v2.2.1:
 - Added CSSLint to Grunt tasks (Find CSS errors)
 - Added Image to Grunt tasks (compress images)
 - Added Clean to Grunt tasks (remove unwanted files like uncompressed images)
-- Updated Bootstrap to 3.3.5
+- Updated Bootstrap to 3.3.5 (v3.3.4)
 
 v2.2.0:
 - Bug fixes
