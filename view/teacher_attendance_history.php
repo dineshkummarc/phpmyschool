@@ -12,9 +12,7 @@ if(!isset($_SERVER['HTTP_REFERER'])){
 <style>
 
 body { 
-
 	overflow-y:scroll;
-	
 }
 
 .msk-modal-content {
@@ -23,7 +21,6 @@ body {
    left: 125px; 
    
 }
-
 
 .modal-content1{
 	
@@ -111,7 +108,8 @@ body.modal-open-noscroll1
 .tHead{
 	
 	height:40px;
-	background-color:#8e1c82;
+	/*background-color:#8e1c82;*/
+	background-color:#048ed9;
 	color:#FFF;
 	text-align:center;
 	border:1px solid #FFF;
@@ -126,23 +124,24 @@ body.modal-open-noscroll1
 .td_no_number{
 	border:1px solid white;
 	width:70px;
-	background-color:#979045;
+	/*background-color:#979045;*/
+	background-color:#edf8fc;
 	padding:0;
 }
 
 .cal-number-td{
 	border:1px solid white;
 	width:70px;
-	background-color:#677be2;
-	color:white;
-	
-		
+	/*background-color:#677be2;*/
+	background-color:#8ecaed;
+	color:white;		
 }
 
 .h5{
 	color:#FFF;
 	display: inline-block;
-	background:#636;
+	/*background:#636;*/
+	background:#000000;
 	width:25px;
 	height:25px;	
 	font-size:14px;
@@ -172,10 +171,6 @@ body.modal-open-noscroll1
 	margin-left:5px;
 	padding:0;
 }
-
-
-
-
 
 .present{
 	background-color:#00FF66;
