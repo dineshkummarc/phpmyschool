@@ -393,9 +393,9 @@ if(mysqli_num_rows($result) > 0) {
                                 <input type="hidden" id="status5" value="<?php echo $status5; ?>">  
                             	</div><br><br>
                             <div style="float:left; width:100px; ">
-                                	<div style="background-color:#FF0033; width:15px; height:15px; float:left; margin-right:2px;"> </div> <span style="text-align:left;">  - Absent </span><br> 
-                                    <div style="background-color:#00FF66; width:15px; height:15px; float:left; margin-right:2px;"> </div> <span style="text-align:left;">  - Present </span><br> 
-                                    <div style="background-color:#FFCC33; width:15px; height:15px; float:left; margin-right:2px;"> </div> <span style="text-align:left;">  - Not Held  </span><br> 
+                                	<div style="background-color:#FF0033; width:15px; height:15px; float:left; margin-right:2px;"> </div> <span style="text-align:left;">  - Absent </span>
+                                    <div style="background-color:#00FF66; width:15px; height:15px; float:left; margin-right:2px;"> </div> <span style="text-align:left;">  - Present </span>
+                                    <div style="background-color:#FFCC33; width:15px; height:15px; float:left; margin-right:2px;"> </div> <span style="text-align:left;">  - Missed  </span>
                             </div>
 <?php  }echo '<script>','show_calendar()','</script>'; ?>                            
                     	</div>
