@@ -9,9 +9,7 @@ We will cover this tutorial in easy steps, from developing a live demo of the sc
 ## About School Management System
 
 School Management Systems manage all the information of the students and/or faculty in a particular school.
-
 In our project, we will only use it to manage some basic personal information of the students of a school.
-
 So let us start implementing School Management System with PHP and MySQL.
 
 ## Other Related Information
